@@ -1,26 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { connect} from "remx";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { HashRouter, Route, Switch } from 'react-router-dom';
+
+import broker from './utils/broker';
+import authStore from './stores/auth';
+
+import './assets/css/dashforge.css';
+import './assets/css/app.css';
+
+import MainLayout from './containers/MainLayout';
+
+
+class App extends Component {
+  componentDidMount(){
+    const token = window.localStorage.getItem('token');
+    if (token) {
+      // console.log(token)
+      broker.checkUserIdentity().then(res => {
+        if (res.status) {
+          authStore.setters.setUser(res.user);
+         } else {
+          window.localStorage.clear();
+          window.location.reload();
+        }
+      });
+    }
+  }
+
+  render(){
+    return (<HashRouter>
+      <Switch>
+        {/* <Route exact path="/login" name="Login Page" component={LoginLayout} /> */}
+        <Route path="" name="Home" component={MainLayout} />
+      </Switch>
+      
+    </HashRouter>);
+  }
+
 }
 
-export default App;
+function mapStateToProps(props) {
+  return {
+      user: authStore.getters.getUser(),
+  }
+}
+
+export default connect(mapStateToProps)(App);
