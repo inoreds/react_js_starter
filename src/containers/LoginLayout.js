@@ -25,11 +25,11 @@ class LoginLayout extends Component {
     }
 
     onChangeusername(e) {
-        this.setState({ username: e.target.value });
+        this.setState({ username: e.target.value, message: '' });
     }
     
     onChangePassword(e) {
-        this.setState({ password: e.target.value });
+        this.setState({ password: e.target.value, message: '' });
     }
     
     handleKeyPress(e) {
@@ -44,7 +44,7 @@ class LoginLayout extends Component {
           message: '',
         });
     
-        broker.fetch.post('auth/login', {
+        broker.fetch.post('/auth/login', {
             username: this.state.username,
             password: this.state.password,
             password_confirmation: this.state.password
@@ -81,7 +81,7 @@ class LoginLayout extends Component {
                 <header className="navbar navbar-header navbar-header-fixed">
                 <a href="!#" id="mainMenuOpen" className="burger-menu"><i data-feather="menu"></i></a>
                 <div className="navbar-brand">
-                    <a href="!#" className="df-logo">reactjs<span>starter</span></a>
+                    <a href="!#" className="df-logo">inabroker<span>panel</span></a>
                 </div>
                 </header>
                 
@@ -116,9 +116,10 @@ class LoginLayout extends Component {
                                             onKeyPress={this.handleKeyPress}>  
                                         </input>
                                     </div>
-                                    <button className="btn btn-brand-02 btn-block" onClick={() => this.onSubmitLogin()}>Sign In</button>
-                                    <div className="divider-text">or</div>
-                                    <button className="btn btn-outline-facebook btn-block">Forgot Password</button>
+                                    <a href="!#" className="tx-13 text-danger">{this.state.message}</a>
+                                    <button className="btn btn-brand-02 btn-block mg-t-10" onClick={() => this.onSubmitLogin()}>Sign In</button>
+                                    {/* <div className="divider-text">or</div> */}
+                                    {/* <button className="btn btn-outline-facebook btn-block">Forgot Password</button> */}
                                     {/* <button className="btn btn-outline-twitter btn-block">Sign In With Twitter</button> */}
                                     {/* <div className="tx-13 mg-t-20 tx-center">Don't have an account? <a href="page-signup.html">Create an Account</a></div> */}
                                 </div>

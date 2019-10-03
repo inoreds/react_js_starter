@@ -27,9 +27,9 @@ export default {
         children_type: 'normal',
         children: [
           {
-            name: 'Master 1',
-            url: '/master/master_1',
-            icon: 'calendar',
+            name: 'User',
+            url: '/master/user',
+            icon: 'user',
           },
         ],
       },

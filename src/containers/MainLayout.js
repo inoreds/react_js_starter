@@ -4,6 +4,7 @@ import { connect} from "remx";
 import authStore from '../stores/auth'
 
 import '../assets/css/dashforge.landing.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Topbar from './_layout/Topbar';
 import {Routes} from '../helpers/routes';

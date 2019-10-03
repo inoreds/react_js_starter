@@ -8,6 +8,7 @@ import authStore from './stores/auth';
 
 import './assets/css/dashforge.css';
 import './assets/css/app.css';
+import "sweetalert/dist/sweetalert.css";
 
 import MainLayout from './containers/MainLayout';
 
