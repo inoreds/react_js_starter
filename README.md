@@ -4,7 +4,7 @@
 Run **npm install**
 
 ### Setup API Endpoint
-pelase set up your database environment in /utils/config.js file
+pelase set up your api server in /utils/config.js file
 
 ### How to running 
 Run **npm start**
