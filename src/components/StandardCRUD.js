@@ -296,8 +296,7 @@ class MasterViewer extends Component {
         var prev_state = this.state.select_box_data;
      
         broker.fetch.get(url).then(res => {
-            const { data } = res;
-            const { meta } = data;
+            const { data } = res.data;
             if (data) {
                 this.setState({[id] : data.data})
             }
