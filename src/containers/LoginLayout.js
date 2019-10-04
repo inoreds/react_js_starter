@@ -81,7 +81,7 @@ class LoginLayout extends Component {
                 <header className="navbar navbar-header navbar-header-fixed">
                 <a href="!#" id="mainMenuOpen" className="burger-menu"><i data-feather="menu"></i></a>
                 <div className="navbar-brand">
-                    <a href="!#" className="df-logo">inabroker<span>panel</span></a>
+                    <a href="!#" className="df-logo">reactjs<span>starter</span></a>
                 </div>
                 </header>
                 
