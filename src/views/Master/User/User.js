@@ -30,11 +30,10 @@ class User extends Component {
         { header: 'Nama', id: 'nama_lengkap', accessor: 'nama_lengkap', child_accessor: null, className: 'text-center'},
         { header: 'Username', id: 'username', accessor: 'username', child_accessor: null, className: 'text-center'},
         { header: 'Role', id: 'role', accessor: 'role', child_accessor: null, className: 'text-center'},
-        { header: 'Status', id: 'status', accessor: 'status', child_accessor: null, className: 'text-center',
-        Cell: row => { // you can definition custom colum like this, css and etc. row is accessor. accessor is name object of column
-            // if (row == )
-            return <span className={(row === 'AKTIF') ? 'badge badge-light' : 'badge badge-dark'}>{row}</span>
-            }
+        { header: 'id', id: 'status', accessor: 'status', child_accessor: null,
+            Cell: row => {
+                return <span className={(row.row.status === 'AKTIF') ? 'badge badge-light' : 'badge badge-dark'}>{row.row.status}</span>
+                }
         },
     ],
     }

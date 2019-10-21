@@ -389,16 +389,16 @@ class MasterViewer extends Component {
                                                                                     data[column.accessor]
                                                                                 }
                                                                                 {(!column.Cell) && (column.id === 'option_column') &&
-                                                                                     <div className="d-none d-md-block">
+                                                                                    <div className="d-none d-md-block">
                                                                                         <button className="btn btn-xs pd-x-15 btn-outline-dark btn-uppercase mg-l-5" onClick={() => this.getDataPer(data.id)}><i className="fa fa-pencil-alt"></i></button>
                                                                                         <button className="btn btn-xs pd-x-15 btn-outline-dark btn-uppercase mg-l-5" onClick={() => this.setState({modal_delete:true, id_delete_edit: data.id})}><i className="fa fa-trash"></i></button>
                                                                                     </div>
                                                                                 }
                                                                                 {(!column.Cell) && (column.id === 'number_counter') &&
-                                                                                    j+(this.state.data_meta.from) +`.`      
+                                                                                    j+((this.state.page_index -1) * this.state.page_size_option + 1) +`.`      
                                                                                 }
                                                                                 {(column.Cell) &&
-                                                                                    column.Cell(data[column.accessor])
+                                                                                    column.Cell({value : data[column.accessor], row : data})
                                                                                 }
                                                                                 
                                                                             </td>
